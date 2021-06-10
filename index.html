@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equive="X-UA-Compatible" content="id-edge"> 
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> 
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?212 moon child sans">
+    <title>Realidad aumentada </title>
+   
+    <style>
+      
+      .primero{
+        background-color: #f0f0f0;
+        text-align: center;
+        align-content: center;
+        padding: auto;
+      }
+      
+      .segundo{
+       text-align: center;
+      }
+      
+      </style>
+
+<script>
+  function addScene() {
+    var scene = document.createElement("iframe")
+    scene.setAttribute("src", "./ar.html")
+    scene.setAttribute("width", "280")
+    scene.setAttribute("height", "280")
+    scene.setAttribute("align", "center")
+    scene.setAttribute("style", "")
+    document.querySelector("body").appendChild(scene)
+   
+    var contador = 1;
+    document.getElementById('button').onclick = function() {
+    alert("No es necesario presionar mas de una vez el boton");
+    };
+  }
+</script>
+  
+
+</head>
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="comienza.html">
+        <img
+          src="IconoAzulalto.png"
+          
+          height="30"
+          alt=""
+          loading="lazy"
+        />
+        
+      </a>
+    </div>
+  </nav>
+
+  <center><h1><b>Aplicación AR</b></h1></center>
+    <main class="container-fluid mt-3">
+        <section class="row text-center">
+            
+        </section>
+       
+    <!-- Creación de menú-->
+ <div class="d-flex">
+    <div class="p-2 flex-fill">
+        <div class="jumbotron col-md-6  ">
+            <CENTER><div><h4 class="titulo"><b>Cargar con QR</b></h4></div></CENTER>
+            <div class="row">
+              <select id="QRSele" >
+                <option value="QR1" selected >Codigo QR1</option>
+                <option value="QR2">Codigo QR2</option>
+
+              </select>
+                  </div>
+                  <br><br>
+                  <div class="img"></div>
+                  <img class="rounded mx-auto d-block img-thumbnail ball" style="width: 44%;" id="img" >
+                  <br><br>
+           <center><button type="button" class="btn btn-primary btn-rounded">Aceptar</button></center>
+            
+        </div>
+                
+                <br> <br>
+        <div class="jumbotron col-md-6  ">
+            <CENTER><div><h4 class="titulo"><b>Cargar modelo</b></h4></div></CENTER>
+            <select id="ModSele" >
+              <option value="QR1" selected >Modelo 3D #1</option>
+              <option value="QR2">Modelo 3D #2</option>
+            </select>
+                <br><br><br>
+           <div class="img"></div>
+           <img class="rounded mx-auto d-block img-thumbnail ball" style="width: 40%;" id="modelo" >
+           <br><br>
+           <center><button type="button" class="btn btn-primary btn-rounded">Aceptar</button></center>
+            
+           
+            </div>
+    </div>
+    
+    <div class="p-2 central">
+      <div class="jumbotron col-md-12 ">
+        <form action="https://www.google.com/search" method="GET" id="search-form" target="_blank"></form>
+          <h2 class="text-center" id="microfono">Camara</h2>
+          <div class="row">
+            </a-scene>
+          <div class="camara"></div>
+          <center>
+          <div class="primero">
+            <iframe id="camarina" src="./ar.html" width="295px" height="295px"></iframe>
+          </div>
+        </center>
+        </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</html>
+
+<script>
+  var slcchange = document.getElementById("QRSele");
+slcchange.addEventListener("change", function() {
+  if(slcchange.value=="QR1"){
+    document.getElementById("img").src = "QR_marcador1.png";
+  }else if(slcchange.value=="QR2"){
+    document.getElementById("img").src = "QR_marcador2.png";
+  }
+});
+
+var slcchange = document.getElementById("ModSele");
+slcchange.addEventListener("change", function() {
+  if(slcchange.value=="QR1"){
+    document.getElementById("modelo").src = "atardecer.jpg";
+  }else if(slcchange.value=="QR2"){
+    document.getElementById("modelo").src = "dino.jpg";
+  }
+});
+</script>
